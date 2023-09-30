@@ -1,0 +1,41 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+enableFeaturePreview('VERSION_CATALOGS')
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenLocal()
+        google()
+        mavenCentral()
+    }
+    versionCatalogs {
+        create('androidxLibs') {
+            // 别名 group artifact version
+            library('material', 'com.google.android.material', 'material').version('1.5.0')
+            library('navigation-fragment', 'androidx.navigation', 'navigation-fragment-ktx').version('2.5.3')
+            library('navigation-ui', 'androidx.navigation', 'navigation-ui-ktx').version('2.5.3')
+            // androidX通用依赖
+            bundle('androidx', ['navigation-fragment','navigation-ui'/*,'core-ktx', 'appcompat', 'constraintlayout'*/])
+            // nav-plugin
+            library('asm', 'org.ow2.asm', 'asm').version('9.2')
+            library('asm-tree', 'org.ow2.asm', 'asm-tree').version('9.2')
+            library('commons-io', 'commons-io', 'commons-io').version('2.6')
+            library('commons-codec', 'commons-codec', 'commons-codec').version('1.11')
+            library('kotlinpoet', 'com.squareup', 'kotlinpoet').version('1.2.0')
+            library('agp', 'com.android.tools.build', 'gradle').version('7.4.1')
+            bundle('nav-plugin', ['asm', 'asm-tree', 'commons-io','commons-codec', 'kotlinpoet', 'agp'])
+            //fastjson
+            library('fastjson','com.alibaba','fastjson').version('1.2.59')
+        }
+    }
+}
+rootProject.name = "EnjoyVideo"
+include ':app'
+include ':nav-plugin'
+include ':nav-plugin-runtime'
