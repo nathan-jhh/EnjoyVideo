@@ -4,11 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.techme.jetpack.R
 import com.techme.jetpack.databinding.LayoutFragmentHomeBinding
+import com.techme.jetpack.http.ApiService
 import com.techme.jetpack.plugin.runtime.NavDestination
+import kotlinx.coroutines.launch
+import kotlin.concurrent.thread
 
 @NavDestination(type = NavDestination.NavType.Fragment, route = "home_fragment", asStarter = true)
 class HomeFragment : BaseFragment() {
@@ -42,6 +46,10 @@ class HomeFragment : BaseFragment() {
                 )
             }
 
+        }
+
+        lifecycleScope.launch {
+            ApiService.getService().getFeeds()
         }
     }
 }

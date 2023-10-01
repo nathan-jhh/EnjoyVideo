@@ -11,7 +11,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import com.techme.jetpack.databinding.LayoutLoadingStatusViewBinding
-import com.techme.jetpack.ext.setVisibility
+/*import com.techme.jetpack.ext.setVisibility*/
 
 /**
  * 页面加载通用状态View
