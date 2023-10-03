@@ -1,11 +1,9 @@
 package com.techme.jetpack.http
 
-import com.google.gson.JsonArray
 import com.google.gson.JsonObject
+import com.techme.jetpack.model.Author
 import com.techme.jetpack.model.Feed
-/*import com.techme.jetpack.model.Author
-import com.techme.jetpack.model.Feed
-import com.techme.jetpack.model.TagList*/
+import com.techme.jetpack.model.TagList
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
@@ -34,7 +32,7 @@ interface IApiInterface {
      * @param avatar 用户头像
      * @param qq0penId qq登录后获得，代表用户的唯一身份
      * @param expires_time 登录过期时间
-     *//*
+     */
     @GET("user/insert")
     suspend fun saveUser(
         @Query("name") name: String,
@@ -44,33 +42,33 @@ interface IApiInterface {
     ): ApiResult<Author>
 
 
-    *//**
+    /**
      * 对一个帖子的喜欢 或 取消喜欢
      * @param itemId 帖子的id
      * @param userId 当前登陆者的id
-     *//*
+     */
     @GET("ugc/toggleFeedLike")
     suspend fun toggleFeedLike(
         @Query("itemId") itemId: Long,
         @Query("userId") userId: Long
     ): ApiResult<JsonObject>
 
-    *//**
+    /**
      * 对一个帖子的踩 或取消踩
      * @param itemId 帖子的id
      * @param userId 当前登陆者的id
-     *//*
+     */
     @GET("ugc/dissFeed/")
     suspend fun toggleDissFeed(
         @Query("itemId") itemId: Long, @Query("userId") userId: Long
     ): ApiResult<JsonObject>
 
-    *//**
+    /**
      * 对帖子的评论进行点赞或取消点赞
      * @param commentId 评论的id
      * @param itemId 帖子的id
      * @param userId 当前登陆者的id
-     *//*
+     */
     @GET("ugc/toggleCommentLike/")
     suspend fun toggleCommentLike(
         @Query("commentId") commentId: Long,
@@ -79,7 +77,7 @@ interface IApiInterface {
     ): ApiResult<JsonObject>
 
 
-    *//**
+    /**
      * 发布一条帖子
      * @param coverUrl 视频封面图的http-url，如果发布的是视频帖子，则该参数必填
      * @param fileUrl 图片或视频文件的http-url,如果发布的是视频或图片帖子，则该参数必填
@@ -88,7 +86,7 @@ interface IApiInterface {
      * @param tagId 选择的标签的tagId
      * @param tagTitle 选择的标签的title
      * @param feedText 发布的帖子的文本
-     *//*
+     */
     @FormUrlEncoded
     @POST("feeds/publish")
     suspend fun publishFeed(
@@ -103,14 +101,14 @@ interface IApiInterface {
     ): ApiResult<JsonObject>
 
 
-    *//**
+    /**
      * 发布帖子时用于查询可用的标签集合
      * @param userId 当前登陆者的id
      * @param tagId 分页查询才需要，默认0即可
-     *//*
+     */
     @GET("tag/queryTagList")
     suspend fun getTagList(
         @Query("userId") userId: Long,
         @Query("tagId") tagId: Long = 0
-    ): ApiResult<List<TagList>>*/
+    ): ApiResult<List<TagList>>
 }

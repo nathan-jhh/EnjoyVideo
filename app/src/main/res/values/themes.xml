@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Jetpack_android_online" parent="Theme.MaterialComponents.DayNight.NoActionBar" />
+    <style name="Theme.Jetpack_android_online" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
+        <item name="android:listDivider">@drawable/list_divider</item>
+    </style>
+
 </resources>

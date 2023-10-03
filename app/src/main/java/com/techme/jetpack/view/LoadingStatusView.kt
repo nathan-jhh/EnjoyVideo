@@ -11,6 +11,7 @@ import android.widget.FrameLayout
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import com.techme.jetpack.databinding.LayoutLoadingStatusViewBinding
+
 /*import com.techme.jetpack.ext.setVisibility*/
 
 /**
@@ -27,7 +28,7 @@ class LoadingStatusView @JvmOverloads constructor(
     }
 
     @SuppressLint("ResourceType")
-    fun showEmpty(@DrawableRes iconRes: Int=0, text: String? = null, retry: OnClickListener?) {
+    fun showEmpty(@DrawableRes iconRes: Int = 0, text: String? = null, retry: OnClickListener?) {
         binding.loading.hide()
         binding.emptyLayout.visibility = View.VISIBLE
         if (iconRes > 0) {

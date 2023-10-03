@@ -3,7 +3,6 @@ package com.techme.jetpack.http
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 object ApiService {
     private val okHttpClient = OkHttpClient.Builder()
@@ -14,7 +13,7 @@ object ApiService {
         .baseUrl("http://8.136.122.222/jetpack/")
         /*.baseUrl("http://192.168.31.201:8082/jetpack/")*/
         .client(okHttpClient)
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(GsonConverterFactory())
         .build()
 
     fun getService(): IApiInterface {
