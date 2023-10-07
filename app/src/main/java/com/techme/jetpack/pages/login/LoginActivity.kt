@@ -28,7 +28,7 @@ class LoginActivity : AppCompatActivity() {
         viewBinding.actionClose.setOnClickListener { finish() }
         viewBinding.actionLogin.setOnClickListener { login() }
 
-        tencent = Tencent.createInstance("102047280", applicationContext)
+        tencent = Tencent.createInstance("102066913", applicationContext)
     }
 
     private fun login() {

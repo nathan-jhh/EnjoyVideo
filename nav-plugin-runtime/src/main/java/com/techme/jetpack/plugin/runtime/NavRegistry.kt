@@ -13,9 +13,9 @@ object NavRegistry {
 
 
     init {
-        navList.add(NavData("category_fragment","com.techme.jetpack.navigation.CategoryFragment",false,Fragment))
-                navList.add(NavData("tags_fragment","com.techme.jetpack.navigation.TagsFragment",false,Fragment))
+        navList.add(NavData("tags_fragment","com.techme.jetpack.navigation.TagsFragment",false,Fragment))
                 navList.add(NavData("user_fragment","com.techme.jetpack.navigation.UserFragment",false,Fragment))
+                navList.add(NavData("category_fragment","com.techme.jetpack.pages.category.CategoryFragment",false,Fragment))
                 navList.add(NavData("home_fragment","com.techme.jetpack.pages.home.HomeFragment",true,Fragment))
 
     }

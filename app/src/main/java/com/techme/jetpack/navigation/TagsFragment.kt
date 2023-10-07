@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.techme.jetpack.plugin.runtime.NavDestination
 
 import com.techme.jetpack.databinding.LayoutFragmentTagsBinding
+import com.techme.jetpack.ext.navigateBack
 
 @NavDestination(type = NavDestination.NavType.Fragment, route = "tags_fragment")
 class TagsFragment : BaseFragment() {

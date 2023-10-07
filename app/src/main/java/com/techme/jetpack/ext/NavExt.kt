@@ -1,4 +1,4 @@
-package com.techme.jetpack.navigation
+package com.techme.jetpack.ext
 
 import android.os.Bundle
 import androidx.navigation.NavController

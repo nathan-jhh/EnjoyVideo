@@ -1,8 +1,8 @@
-package com.techme.jetpack
+package com.techme.jetpack.util
 
-import android.content.Context
-import com.alibaba.fastjson.JSON
-import com.techme.jetpack.navigation.BottomBar
+import com.google.gson.Gson
+import com.techme.jetpack.model.Category
+import com.techme.jetpack.model.BottomBar
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStream
@@ -10,16 +10,25 @@ import java.io.InputStreamReader
 
 object AppConfig {
     private var sBottomBar: BottomBar? = null
-    fun getBottomBarConfig(context: Context): BottomBar {
+    private var sCategory: Category? = null
+    fun getBottomBarConfig(): BottomBar {
         if (sBottomBar == null) {
-            val content: String = parseFile(context, "main_tabs_config.json")
-            sBottomBar = JSON.parseObject(content, BottomBar::class.java)
+            val content: String = parseFile("main_tabs_config.json")
+            sBottomBar = Gson().fromJson(content, BottomBar::class.java)
         }
         return sBottomBar!!
     }
 
-    private fun parseFile(context: Context, fileName: String): String {
-        val assets = context.assets
+    fun getCategory(): Category {
+        if (sCategory == null) {
+            val content: String = parseFile("category_tabs_config.json")
+            sCategory = Gson().fromJson(content, Category::class.java)
+        }
+        return sCategory!!
+    }
+
+    private fun parseFile(fileName: String): String {
+        val assets = AppGlobals.getApplication().assets
         var inputStream: InputStream? = null
         var br: BufferedReader? = null
         val builder = StringBuilder()

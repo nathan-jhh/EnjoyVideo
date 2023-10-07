@@ -1,19 +1,11 @@
 package com.techme.jetpack.pages.home
 
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
-import androidx.navigation.NavOptions
-import androidx.navigation.fragment.findNavController
-import com.techme.jetpack.R
-import com.techme.jetpack.databinding.LayoutFragmentHomeBinding
 import com.techme.jetpack.ext.invokeViewModel
-import com.techme.jetpack.http.ApiService
 import com.techme.jetpack.list.AbsListFragment
-import com.techme.jetpack.navigation.BaseFragment
-import com.techme.jetpack.navigation.navigateTo
 import com.techme.jetpack.plugin.runtime.NavDestination
 import kotlinx.coroutines.launch
 
@@ -29,6 +21,16 @@ class HomeFragment : AbsListFragment() {
             viewModel.hotFeeds.collect {
                 submitData(it)
             }
+        }
+    }
+
+    companion object {
+        fun newInstance(feedType: String?): Fragment {
+            val args = Bundle()
+            args.putString("feedType", feedType)
+            val fragment = HomeFragment()
+            fragment.arguments = args
+            return fragment
         }
     }
 }

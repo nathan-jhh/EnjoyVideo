@@ -4,10 +4,10 @@ import android.os.Bundle
 import android.text.TextUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
-import com.techme.jetpack.R
 import com.techme.jetpack.navigation.AppBottomBar
 import com.techme.jetpack.navigation.NavGraphBuilder
-import com.techme.jetpack.navigation.switchTab
+import com.techme.jetpack.ext.switchTab
+import com.techme.jetpack.util.AppConfig
 
 class MainActivity : AppCompatActivity() {
     private val navController by lazy {
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
 
         val appBottomBar = findViewById<AppBottomBar>(R.id.app_bottom_bar)
         appBottomBar.setOnItemSelectedListener {
-            val tab = AppConfig.getBottomBarConfig(this).tabs[it.order]
+            val tab = AppConfig.getBottomBarConfig().tabs[it.order]
             navController.switchTab(tab.route)
             !TextUtils.isEmpty(it.title)
         }

@@ -11,3 +11,8 @@ local.properties
 .idea/codeStyles/codeStyleConfig.xml
 .idea/codeStyles/Project.xml
 .idea/compiler.xml
+app/debug/EnjoyVideo.apk
+app/debug/output-metadata.json
+app/release/EnjoyVideo.apk
+app/release/output-metadata.json
+app/schemas/com.techme.jetpack.cache.CacheManager/1.json

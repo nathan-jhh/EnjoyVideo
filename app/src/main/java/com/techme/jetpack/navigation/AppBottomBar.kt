@@ -8,8 +8,8 @@ import android.util.AttributeSet
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarMenuView
-import com.techme.jetpack.AppConfig
 import com.techme.jetpack.R
+import com.techme.jetpack.util.AppConfig
 import kotlin.math.roundToInt
 
 class AppBottomBar @JvmOverloads constructor(
@@ -24,7 +24,7 @@ class AppBottomBar @JvmOverloads constructor(
     )
 
     init {
-        val config = AppConfig.getBottomBarConfig(context)
+        val config = AppConfig.getBottomBarConfig()
         val states = arrayOfNulls<IntArray>(2)
         states[0] = IntArray(1) { android.R.attr.state_selected }
         states[1] = intArrayOf()

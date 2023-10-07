@@ -6,6 +6,15 @@ plugins {
 }
 
 android {
+    signingConfigs {
+        release {
+            storeFile file('D:\\project\\ShortVideo\\myappjks.jks')
+            storePassword '123456'
+            keyAlias 'nathan'
+            keyPassword '123456'
+        }
+    }
+
     namespace 'com.techme.jetpack'
     compileSdk 33
 
@@ -20,12 +29,22 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -42,6 +61,13 @@ android {
     }
     viewBinding {
         enabled = true
+    }
+
+    applicationVariants.all {
+        variant ->
+            variant.outputs.all {
+                outputFileName = "EnjoyVideo.apk"
+            }
     }
 }
 

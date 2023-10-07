@@ -1,4 +1,4 @@
-package com.techme.jetpack.navigation;
+package com.techme.jetpack.model;
 
 import java.util.List;
 
