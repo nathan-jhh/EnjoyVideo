@@ -2,6 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -19,7 +29,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Jetpack_android_online"
+        android:theme="@style/Theme.APP"
         tools:targetApi="31">
 
         <!-- QQ快捷登录SDK apache类需要在这里通过uses-library -->
@@ -31,7 +41,7 @@
             android:name="com.techme.jetpack.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.Jetpack_android_online">
+            android:theme="@style/Theme.APP">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -62,6 +72,16 @@
         <activity
             android:name=".pages.login.LoginActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".pages.publish.CaptureActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/capture" />
+
+        <activity
+            android:name=".pages.publish.PreviewActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/preview" />
     </application>
 
 </manifest>

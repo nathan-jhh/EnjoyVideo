@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="Theme.Jetpack_android_online" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
+    <style name="Theme.APP" parent="Theme.MaterialComponents.DayNight.NoActionBar" >
         <item name="android:listDivider">@drawable/list_divider</item>
+    </style>
+
+    <style name="capture" parent="Theme.APP">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="preview" parent="Theme.APP">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowBackground">@color/black</item>
     </style>
 
 </resources>
