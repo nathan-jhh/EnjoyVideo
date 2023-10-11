@@ -89,6 +89,12 @@ dependencyResolutionManagement {
 
             // gesture imageview
             library('photoView','com.github.chrisbanes','PhotoView').version('2.3.0')
+
+            //workmanager
+            library ('work','androidx.work','work-runtime').version('2.8.0')
+
+            // aliyun oss
+            library('osssdk','com.aliyun.dpa','oss-android-sdk').version('2.9.11')
         }
     }
 }

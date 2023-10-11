@@ -18,6 +18,7 @@ object NavRegistry {
                 navList.add(NavData("category_fragment","com.techme.jetpack.pages.category.CategoryFragment",false,Fragment))
                 navList.add(NavData("home_fragment","com.techme.jetpack.pages.home.HomeFragment",true,Fragment))
                 navList.add(NavData("activity_capture","com.techme.jetpack.pages.publish.CaptureActivity",false,Activity))
+                navList.add(NavData("activity_publish","com.techme.jetpack.pages.publish.PublishActivity",false,Activity))
 
     }
 

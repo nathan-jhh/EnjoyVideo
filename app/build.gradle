@@ -97,6 +97,12 @@ dependencies {
     // gesture view
     implementation androidxLibs.photoView
 
+    // workmanager
+    implementation androidxLibs.work
+
+    // oss-sdk
+    implementation androidxLibs.osssdk
+
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.3.1'

@@ -1,5 +1,6 @@
-package com.techme.jetpack.navigation
+package com.techme.jetpack.view
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
@@ -8,10 +9,12 @@ import android.util.AttributeSet
 import com.google.android.material.bottomnavigation.BottomNavigationItemView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationBarMenuView
-import com.techme.jetpack.R
 import com.techme.jetpack.util.AppConfig
+import com.techme.jetpack.R
+import com.techme.jetpack.model.BottomBar
 import kotlin.math.roundToInt
 
+@SuppressLint("RestrictedApi")
 class AppBottomBar @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : BottomNavigationView(context, attrs) {
@@ -22,7 +25,6 @@ class AppBottomBar @JvmOverloads constructor(
         R.drawable.icon_tab_tags,
         R.drawable.icon_tab_user
     )
-
     init {
         val config = AppConfig.getBottomBarConfig()
         val states = arrayOfNulls<IntArray>(2)
@@ -40,13 +42,12 @@ class AppBottomBar @JvmOverloads constructor(
         //LABEL_VISIBILITY_UNLABELED:所有的按钮文本都不显示
         labelVisibilityMode = LABEL_VISIBILITY_LABELED
 
-        val tabs = config.tabs
+        val tabs = config.tabs?:throw java.lang.RuntimeException("parse bottom bar config failed")
         tabs.forEachIndexed { index, tab ->
             if (!tab.enable) return@forEachIndexed
             val menuItem = menu.add(0, tab.route.hashCode(), index, tab.title)
             menuItem.setIcon(sIcons[index])
         }
-
         tabs.forEachIndexed { index, tab ->
             println("forEachIndexed:${index},${tab.size}")
             val iconSize = dp2Px(tab.size)
@@ -57,7 +58,7 @@ class AppBottomBar @JvmOverloads constructor(
             itemView.setIconSize(iconSize)
             if (TextUtils.isEmpty(tab.title)) {
                 itemView.setIconTintList(ColorStateList.valueOf(Color.parseColor(config.activeColor)))
-                post(Runnable {
+                post(Runnable{
                     itemView.scrollBy(0, dp2Px(20))
                 })
             }
@@ -75,5 +76,8 @@ class AppBottomBar @JvmOverloads constructor(
     private fun dp2Px(size: Int): Int {
         val density = context.resources.displayMetrics.density
         return (density * size + 0.5f).roundToInt()
+    }
+    fun getTab(order: Int): BottomBar.Tab? {
+        return AppConfig.getBottomBarConfig().tabs?.get(order)
     }
 }

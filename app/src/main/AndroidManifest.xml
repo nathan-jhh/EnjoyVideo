@@ -82,6 +82,10 @@
             android:name=".pages.publish.PreviewActivity"
             android:screenOrientation="portrait"
             android:theme="@style/preview" />
+
+        <activity
+            android:name=".pages.publish.PublishActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
