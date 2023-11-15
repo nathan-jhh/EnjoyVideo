@@ -123,7 +123,7 @@ class PagePlayDetector(
             }
         }
         attachedViewListener?.run {
-            togglePlay(this.getAttachView(), this.getVideoUrl())
+            this.getVideoUrl()?.let { togglePlay(this.getAttachView(), it) }
         }
     }
 
@@ -133,6 +133,6 @@ class PagePlayDetector(
 
     interface IPlayDetector {
         fun getAttachView(): WrapperPlayerView
-        fun getVideoUrl(): String
+        fun getVideoUrl(): String?
     }
 }

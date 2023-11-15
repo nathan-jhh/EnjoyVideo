@@ -18,8 +18,6 @@ import android.provider.MediaStore
 import android.util.Log
 import android.util.Size
 import android.view.MotionEvent
-import android.view.View
-import android.view.View.OnTouchListener
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity

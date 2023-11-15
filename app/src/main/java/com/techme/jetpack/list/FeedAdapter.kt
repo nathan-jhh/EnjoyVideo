@@ -278,8 +278,8 @@ class FeedAdapter constructor(
             return playerView!!
         }
 
-        override fun getVideoUrl(): String {
-            return getItem(layoutPosition)?.url!!
+        override fun getVideoUrl(): String? {
+            return getItem(layoutPosition)?.url
         }
 
         fun isVideo(): Boolean {
