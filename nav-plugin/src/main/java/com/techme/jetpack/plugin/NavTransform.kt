@@ -205,6 +205,7 @@ class NavTransform(val project: Project) : Transform() {
     private fun visitClass(inputStream: InputStream) {
         val classReader = ClassReader(inputStream)
         val classVisitor = object : ClassVisitor(ASM9) {
+            // 读取注解信息后回调
             override fun visitAnnotation(descriptor: String?, visible: Boolean): AnnotationVisitor {
                 //return super.visitAnnotation(descriptor, visible)
 
